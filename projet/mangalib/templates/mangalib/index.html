@@ -1,0 +1,68 @@
+{% load static %}
+{% load customtags %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Mangas</title>
+    <link rel="stylesheet" href="{% static 'mangalib/css/main.css' %}">
+</head>
+<body>
+    {% hello_world username as name%}
+    <h1>Bienvenue sur MangaLib !</h1>
+    <p>{{ message }}</p>
+    <!-- | truncatewords:6  -->
+
+    <p>Nous sommes le {{publication|date:"d/m/Y"}}</p>
+    <p>Il est {{ publication|time:"H\hi" }}</p>
+    <p>{{d1|timesince:d2  }}</p>
+    <p>{{ username|default:"Anonyme" }}</p>
+    <p>{{userList|random}}</p>
+    <p>{{ numberOfNews }} Actualit{{numberOfNews|pluralize:"y,ies"}}</p>
+
+    <p>{% hello_world username %}</p>
+    <p>{{name}}</p>
+    <!-- |length_is:13
+    wordcount
+    upper
+ -->
+ {% comment %}
+    <!-- <p>{{link|urlencode}}</p>
+    <p>{{lk|urlizetrunc:10}}</p>
+    <p>{{message|lengthis:13}}</p>
+    <p>{{ message |transform}}</p>
+ -->
+ {% endcomment %}
+    <h2>Contenu d'un autre HTML</h2>
+    {% include "./other.html"%}
+    <p>Rendez-vous sur <a href="{% url 'indexOfMangalib' %}">MangaLib</a></p>
+<!-- 
+    {% comment %}
+        <p>bonjour</p>
+    {% endcomment %}
+
+    {% lorem 5 p random % }
+    {% debug %}
+    {% now "d/m/Y H:i:s   " %} -->
+    <!-- {% if numberNews > 0 %}
+        <p>Des news sont disponibles !</p>
+    {% else %}
+        <p>Pas de news ...</p>
+    {% endif %}
+    <ul>
+        {% for u in userList %}
+            <li>{{ u }}</li>
+
+        {% endfor %}
+    </ul>
+    
+    {% for u in userList %}
+        <p>{{ u }}</p>
+    {% empty %}
+        <p>Pas d'utilisateurs ...</p>
+    {% endfor %} -->
+
+</body>
+</html> 
