@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>La boutique du Doc</h1>
 {% for product in products %}
     <h2>{{ product.name }}</h2>
     <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width:250px">
